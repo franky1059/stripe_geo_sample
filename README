@@ -11,4 +11,6 @@ Some todo's I wanted to do but didn't have time for...
 	- make subclasses for each action
 	- make a "payments handler" that would make it possible to easilty interchange payment processor vendors (pretty much a paynents factory class)
 	- make a order serializer handler
-I think you'll get the idea of what I was going for. Let me know if any questions!
+I think you'll get the idea of what I was going for. 
+In order for the geo location to work it needs to run on a hosted server (not local)
+Let me know if any questions!
