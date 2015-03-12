@@ -66,26 +66,11 @@ class App {
 	// ACTIONS START TODO: put in subclasses later
 	public function action_index()
 	{
-			// FM Debug
-			if(defined('FM_DEBUG') && FM_DEBUG == true) 
-			{
-			echo "<pre>";
-			print_r("File: ".__FILE__);
-			echo "<br />";
-			print_r("Line: ".__LINE__);
-			echo "<br />";        
-			print_r("Inside ".__METHOD__." of class ".__CLASS__); 
-			echo "<br />\$_SERVER: <br />";
-			print_r($_SERVER);
-			echo "<br />";
-			echo "<br />";
-			echo "</pre>"; 
-			//die();
-			}	
+ 		require_once(ABSPATH.'lib/geoiploc.php');
+ 		$ip = $_SERVER["REMOTE_ADDR"];
+		$region = getCountryFromIP($ip, "code");
 
-			echo geoip_country_code_by_name($_SERVER['SERVER_ADDR']);
-
-		$price_region = Prices::resolvePriceRegion($_REQUEST);
+		$price_region = Prices::resolvePriceRegion($region);
 		$this->action_data['price'] = constant('Prices::'. $price_region);
 	}
 
@@ -121,26 +106,7 @@ class App {
 			  	$e_err  = $e_body['error'];		
 				$msg = $e_err['message'];
 				//return false;
-			}		  
-
-			// FM Debug
-			if(defined('FM_DEBUG') && FM_DEBUG == true) 
-			{
-			echo "<pre>";
-			print_r("File: ".__FILE__);
-			echo "<br />";
-			print_r("Line: ".__LINE__);
-			echo "<br />";        
-			print_r("Inside ".__METHOD__." of class ".__CLASS__); 
-			echo "<br />\$charge: <br />";
-			print_r($charge);
-			echo "<br />\$msg: <br />";
-			print_r($msg);
-			echo "<br />";
-			echo "<br />";
-			echo "</pre>"; 
-			//die();
-			}		  
+			}		  		  
 
 			if($capture_results === false) {
 				header("Location: " .'index.php?action=purchaseresultsfail' ) ;

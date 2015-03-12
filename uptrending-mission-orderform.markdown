@@ -28,6 +28,12 @@ Don't worry about presentation at all, you can use the [HTML5 logo](http://www.w
 <a name="country-list"></a>**Asian & Pacific Countries:** Australia, Japan, Korea, India, Singapore, Philippines, China, Taiwan. All non-US countries not listed here receive International pricing.
 
 
+
+
+
+
+
+
 ---------- DEV WORK START ------------------
 
 [[[ User Flow ]]]
@@ -75,6 +81,7 @@ Don't worry about presentation at all, you can use the [HTML5 logo](http://www.w
 Tasks:
 
 [ok] - Browser geo location proof-of-concept
+-- http://chir.ag/projects/geoiploc/ 
 -- https://support.stripe.com/questions/can-i-display-prices-in-my-customers-local-currency 
 -- http://stackoverflow.com/questions/4179000/best-way-to-detect-country-location-of-visitor 
 [ok] - Stripe api proof-of-concept
