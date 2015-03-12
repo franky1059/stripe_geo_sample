@@ -70,6 +70,7 @@ class App {
  		$ip = $_SERVER["REMOTE_ADDR"];
 		$region = getCountryFromIP($ip, "code");
 
+		require_once(ABSPATH.'/lib/prices.php');
 		$price_region = Prices::resolvePriceRegion($region);
 		$this->action_data['price'] = constant('Prices::'. $price_region);
 	}
@@ -77,7 +78,6 @@ class App {
 
 	public function action_purchase()
 	{
-
 		// TODO: put in separate payment handler class (for multiple processing providers)
 		if(isset($_POST['stripeToken'])) {
 			$token  = $_POST['stripeToken'];
@@ -88,7 +88,7 @@ class App {
 			\Stripe\Stripe::setApiKey(Conf::STRIPE_SECRET_KEY);
 
 			$customer = \Stripe\Customer::create(array(
-			  'email' => 'customer@example.com',
+			  'email' => $_POST['stripeEmail'],
 			  'card'  => $token
 			));
 

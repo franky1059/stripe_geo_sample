@@ -32,7 +32,6 @@ if ( !defined('ABSPATH') )
 
 
 require_once(ABSPATH.'config.php');
-require_once(ABSPATH.'/lib/prices.php');
 require_once(ABSPATH.'controller/app.php');
 
 
