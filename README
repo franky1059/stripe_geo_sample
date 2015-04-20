@@ -1,4 +1,6 @@
 
+This was a 4 hour code challenge where we had to create a working stripe payment app that automatically geo-located currency based on the user's country.
+
 ------- README -------------
 
 Stripe configuration is stored in config.php
